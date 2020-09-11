@@ -15,6 +15,8 @@ reddit = praw.Reddit(client_id="",
                      username="",
                      password="")
 
+# ENTER DESIRED subreddit to monitor and get notis
+sub = "sneakers"
 WEBHOOK_ID = id
 WEBHOOK_TOKEN = token
 # Create webhook
@@ -23,7 +25,7 @@ webhook = Webhook.partial(WEBHOOK_ID, WEBHOOK_TOKEN,\
 
 #submission_stream = (reddit.freps.stream.submissions(pause_after=-1)
 
-for submission in reddit.subreddit("fashionrepsbst").stream.submissions():
+for submission in reddit.subreddit(sub).stream.submissions():
         print(submission.title)
         if submission is None:
                 continue
